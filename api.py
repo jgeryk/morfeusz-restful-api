@@ -1,0 +1,24 @@
+import morfeusz2 as mf
+import sys
+from flask import Flask
+from flask_restful import Resource, Api
+reload(sys)
+sys.setdefaultencoding('utf8')
+
+app = Flask(__name__)
+api = Api(app)
+a = mf.Morfeusz()
+
+class HelloWorld(Resource):
+    def get(self):
+        return {'hello': 'world'}
+
+class CaseTagger(Resource):
+    def get(self, text):
+        return a.analyse(text)
+
+api.add_resource(HelloWorld, '/')
+api.add_resource(CaseTagger, '/casetags/<string:text>')
+
+if __name__ == '__main__':
+    app.run(debug=True)
