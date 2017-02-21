@@ -1,4 +1,4 @@
-from morfeusz2 import *
+from morfeusz import *
 import sys
 from flask import Flask
 from flask_restful import Resource, Api
