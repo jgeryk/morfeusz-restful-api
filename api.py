@@ -1,5 +1,8 @@
-from morfeusz import *
+egg_path='mf2.egg'
+
 import sys
+sys.path.append(egg_path)
+from morfeusz2 import *
 from flask import Flask
 from flask_restful import Resource, Api
 reload(sys)
