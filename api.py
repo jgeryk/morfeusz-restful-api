@@ -17,6 +17,7 @@ class HelloWorld(Resource):
 
 class CaseTagger(Resource):
     def get(self, text):
+        print 'Test'
         return analyse(text)
 
 api.add_resource(HelloWorld, '/')
